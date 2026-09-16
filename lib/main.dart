@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
               Text(
                   "NC EXPLORER l'application numéro 1 du Caillou",
                 style: TextStyle(
-                  fontSize: 36
+                  fontSize: 36,
+                  fontFamily: 'Poppins'
                 ),
                 textAlign: TextAlign.center,
               ),
