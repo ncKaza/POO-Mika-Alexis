@@ -14,11 +14,12 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("NC EXPLORER 2026"),
         ),
-        body: const Center(
+        body:  Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
+            children:[
+              Image.asset("assets/images/LOGO.png"),
+              const Text(
                   "NC EXPLORER l'application numéro 1 du Caillou",
                 style: TextStyle(
                   fontSize: 36,
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              Text("Découvrez le Caillou sous tout ses cotés ",
+              const Text("Découvrez le Caillou sous tout ses cotés ",
               style: TextStyle(
                 fontSize: 24
               ),
