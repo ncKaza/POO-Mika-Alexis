@@ -11,7 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      title: "NC Explorer",
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFFF5E9D7),
+      ),
+      home: const HomePage(),
     );
   }
 }
