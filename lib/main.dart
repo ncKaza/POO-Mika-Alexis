@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children:[
+              SvgPicture.asset("assets/images/NC_EXPLORER_logo.svg"),
               Image.asset("assets/images/LOGO.png"),
               const Text(
                   "NC EXPLORER l'application numéro 1 du Caillou",

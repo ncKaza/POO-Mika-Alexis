@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#021B4A"/>
+      <stop offset="100%" stop-color="#0A6DFF"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A4DAA"/>
+      <stop offset="100%" stop-color="#3DEBFF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect x="40" y="40" width="944" height="944" rx="180" fill="url(#bg)"/>
+
+  <g stroke="#fff" stroke-width="18" fill="none" opacity="0.95">
+    <circle cx="512" cy="512" r="290"/>
+    <path d="M512 115 L490 220 L534 220 Z" fill="#fff" stroke="none"/>
+    <path d="M512 909 L490 804 L534 804 Z" fill="#fff" stroke="none"/>
+    <path d="M115 512 L220 490 L220 534 Z" fill="#fff" stroke="none"/>
+    <path d="M909 512 L804 490 L804 534 Z" fill="#fff" stroke="none"/>
+  </g>
+
+  <g transform="translate(0,-25)">
+    <path d="M170 345 L280 320 L420 255 L510 195 L590 230 L675 255 L790 330 L860 360 L860 390 L170 390 Z" fill="#061B3A"/>
+    <path d="M420 255 L510 195 L560 230 L530 250 L515 235 L500 270 L470 250 Z" fill="#3F8F3E"/>
+    <path d="M170 390 C260 400 360 405 460 392 C520 385 585 390 700 400 C760 405 820 400 860 390 L860 520 L170 520 Z" fill="url(#sea)"/>
+    <path d="M340 470 C430 430 520 430 620 470 C560 490 480 495 400 485 Z" fill="#F4E6B0" opacity="0.9"/>
+    <g fill="#06243E">
+      <ellipse cx="700" cy="430" rx="60" ry="18"/>
+      <ellipse cx="770" cy="450" rx="42" ry="14"/>
+    </g>
+    <g fill="#06243E">
+      <path d="M705 420 l12 -40 l12 40 z"/>
+      <path d="M725 420 l10 -34 l10 34 z"/>
+      <path d="M745 420 l12 -44 l12 44 z"/>
+    </g>
+    <g fill="#DDEFFF" opacity="0.9">
+      <ellipse cx="220" cy="260" rx="45" ry="14"/>
+      <ellipse cx="270" cy="245" rx="35" ry="12"/>
+      <ellipse cx="780" cy="250" rx="38" ry="12"/>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <text x="512" y="640" text-anchor="middle"
+          font-family="Montserrat, Arial, Helvetica, sans-serif"
+          font-size="170" font-weight="800" fill="#FFFFFF">NC</text>
+
+    <g transform="translate(575,520) rotate(18)">
+      <path d="M0 0 L78 28 L18 98 Z" fill="#2FB7FF"/>
+      <path d="M18 98 L78 28 L48 116 Z" fill="#0A6DFF"/>
+    </g>
+
+    <text x="512" y="735" text-anchor="middle"
+          font-family="Montserrat, Arial, Helvetica, sans-serif"
+          font-size="58" letter-spacing="12"
+          font-weight="700" fill="#FFFFFF">EXPLORER</text>
+
+    <rect x="438" y="760" width="148" height="10" rx="5" fill="#1EB8FF"/>
+  </g>
+</svg>
