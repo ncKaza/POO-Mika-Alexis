@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'screens/liste_lieux_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,8 +33,8 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              "assets/images/NC_EXPLORER_logo.svg",
+            Image.asset(
+              "assets/images/logo_transparent.png",
               height: 150,
             ),
             const Text(
@@ -57,7 +57,12 @@ class HomePage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
               ),
-              onPressed: () => debugPrint("clickez ici"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ListeLieuxScreen()),
+                );
+              },
               child: const Text(
                 "Affichez la carte",
                 style: TextStyle(
