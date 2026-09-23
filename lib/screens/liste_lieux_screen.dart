@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/lieu.dart';
+import '../models/categorie.dart';
 import '../services/api_service.dart';
 
 class ListeLieuxScreen extends StatefulWidget {
@@ -12,7 +13,15 @@ class ListeLieuxScreen extends StatefulWidget {
 
 class _ListeLieuxScreenState extends State<ListeLieuxScreen> {
   final ApiService _apiService = ApiService();
+  final TextEditingController _rechercheController = TextEditingController();
+
   late Future<List<Lieu>> _futureLieux;
+  late Future<List<Categorie>> _futureCategories;
+
+  String? _provinceSelectionnee;
+  int? _idCategorieSelectionnee;
+
+  static const List<String> _provinces = ['Sud', 'Nord', 'Iles Loyaute'];
 
   @override
   void initState() {
