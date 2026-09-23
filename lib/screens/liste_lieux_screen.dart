@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/lieu.dart';
 import '../models/categorie.dart';
 import '../services/api_service.dart';
+import 'detail_lieu_screen.dart';
 
 class ListeLieuxScreen extends StatefulWidget {
   const ListeLieuxScreen({super.key});
@@ -176,6 +177,14 @@ class _ListeLieuxScreenState extends State<ListeLieuxScreen> {
                       title: Text(lieu.nom),
                       subtitle: Text('${lieu.categorieLibelle ?? ''} · ${lieu.commune}'),
                       trailing: Text(lieu.province),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailLieuScreen(idLieu: lieu.idLieu),
+                          ),
+                        );
+                      },
                     );
                   },
                 );

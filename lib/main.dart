@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/liste_lieux_screen.dart';
+import 'theme/app_colors.dart';
+import 'theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "NC Explorer",
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFF5E9D7),
-      ),
+      theme: AppTheme.clair,
       home: const HomePage(),
     );
   }
@@ -42,6 +42,8 @@ class HomePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 36,
                 fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
+                color: AppColors.marine,
               ),
               textAlign: TextAlign.center,
             ),
@@ -49,14 +51,12 @@ class HomePage extends StatelessWidget {
               "Découvrez le Caillou sous tout ses cotés",
               style: TextStyle(
                 fontSize: 24,
+                color: AppColors.anthracite,
               ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-              ),
               onPressed: () {
                 Navigator.push(
                   context,
