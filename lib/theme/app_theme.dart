@@ -102,6 +102,28 @@ class AppTheme {
         labelSmall: TextStyle(color: AppColors.gris),
       ),
 
+      // Barre de navigation : fond blanc, onglet actif en bleu lagon.
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: AppColors.blancEcume,
+        indicatorColor: AppColors.lagon.withValues(alpha: 0.15),
+        elevation: 3,
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          final actif = states.contains(WidgetState.selected);
+          return TextStyle(
+            fontFamily: 'Poppins',
+            fontSize: 12,
+            fontWeight: actif ? FontWeight.w600 : FontWeight.w400,
+            color: actif ? AppColors.lagon : AppColors.gris,
+          );
+        }),
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          final actif = states.contains(WidgetState.selected);
+          return IconThemeData(
+            color: actif ? AppColors.lagon : AppColors.gris,
+          );
+        }),
+      ),
+
       iconTheme: const IconThemeData(color: AppColors.marine),
       dividerColor: AppColors.sable,
       progressIndicatorTheme: const ProgressIndicatorThemeData(
