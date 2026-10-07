@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 
 import '../models/lieu.dart';
 import '../models/categorie.dart';
+import '../models/utilisateur.dart';
 
 class ApiService {
   // 10.0.2.2 = adresse de l'ordinateur hôte depuis l'émulateur Android.
@@ -10,6 +11,57 @@ class ApiService {
   // trouvable avec `ifconfig | grep inet` dans le Terminal.
   // Sur simulateur iOS, localhost fonctionne directement.
   static const String _baseUrl = 'http://10.0.2.2/nc_explorer/php/api';
+
+  // ----------------------------------------------------------
+  // Authentification
+  // ----------------------------------------------------------
+
+  /// Crée un compte. Le mot de passe part en clair vers le serveur, qui le
+  /// hache immédiatement : il n'est jamais stocké tel quel.
+  Future<Utilisateur> inscrire({
+    required String email,
+    required String pseudo,
+    required String motDePasse,
+  }) async {
+    return _appelAuth('inscription', {
+      'email': email,
+      'pseudo': pseudo,
+      'mot_de_passe': motDePasse,
+    }, codeAttendu: 201);
+  }
+
+  /// Vérifie les identifiants et retourne l'utilisateur correspondant.
+  Future<Utilisateur> connecter({
+    required String email,
+    required String motDePasse,
+  }) async {
+    return _appelAuth('connexion', {
+      'email': email,
+      'mot_de_passe': motDePasse,
+    }, codeAttendu: 200);
+  }
+
+  /// Partie commune aux deux appels : envoi du JSON, puis lecture du message
+  /// d'erreur renvoyé par PHP quand le code HTTP n'est pas celui attendu.
+  Future<Utilisateur> _appelAuth(
+    String action,
+    Map<String, String> corps, {
+    required int codeAttendu,
+  }) async {
+    final reponse = await http.post(
+      Uri.parse('$_baseUrl/auth.php?action=$action'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(corps),
+    );
+
+    final data = jsonDecode(reponse.body) as Map<String, dynamic>;
+
+    if (reponse.statusCode != codeAttendu) {
+      throw Exception(data['erreur'] ?? 'Erreur ${reponse.statusCode}');
+    }
+
+    return Utilisateur.fromJson(data);
+  }
 
   // ----------------------------------------------------------
   // Catégories
